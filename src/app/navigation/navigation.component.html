@@ -16,7 +16,7 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="sidenav" color="primary">
-        <!-- <img id="yellow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8zIiPuJCOH19cyti4QvOHruHvKY69mq4tg&usqp=CAU" alt="" srcset=""> -->
+        <img id="yellow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8zIiPuJCOH19cyti4QvOHruHvKY69mq4tg&usqp=CAU" alt="" srcset="">
         <div *ngFor="let link of mainNavLinks">
             <a class="menu-button" mat-button [routerLink]="link.link" [routerLinkActive]="link.link">
                 <mat-icon color="warn">{{ link.icon }}</mat-icon>
