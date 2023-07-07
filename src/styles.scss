@@ -1,3 +1,35 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.add-btn {
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  justify-self: end;
+}
+
+.display-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gap-4 {
+  column-gap: 16px;
+}
