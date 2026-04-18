@@ -1,3 +1,8 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon>{{ update ? 'edit' : 'playlist_add' }}</mat-icon>
+  {{ update ? 'Edit Role' : 'Add Role' }}
+</h2>
+
 <mat-dialog-content>
   <form class="stat-form" [formGroup]="statForm">
 
@@ -10,7 +15,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Description</mat-label>
-      <input id="description" formControlName="description" placeholder="description" type="text" matInput />
+      <input id="description" formControlName="description" placeholder="Description" type="text" matInput />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Select Sector</mat-label>
@@ -29,11 +34,12 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button class="submit" mat-flat-button color="primary" (click)="save()" [mat-dialog-close]
-    [disabled]="!statForm.valid">
-    Save
-  </button>
-  <button class="submit" mat-flat-button color="accent" [mat-dialog-close]>
+  <button class="submit" mat-stroked-button [mat-dialog-close]>
     Cancel
+  </button>
+  <button class="submit" mat-raised-button color="warn" (click)="save()" [mat-dialog-close]
+    [disabled]="!statForm.valid">
+    <mat-icon>save</mat-icon>
+    Save
   </button>
 </mat-dialog-actions>

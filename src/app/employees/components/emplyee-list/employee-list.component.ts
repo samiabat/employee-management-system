@@ -20,7 +20,7 @@ import { EmployeeService } from '../../services/employee.service';
   providers: [EmployeeFacade],
 })
 export class EmployeeListComponent implements OnInit {
-  d_Colums: string[] = ['id', 'name', 'phone', 'email', 'active', 'updated_date', 'deletedBy', 'created_date', 'det'];
+  d_Colums: string[] = ['id', 'name', 'full_name', 'phone', 'email', 'active', 'created_date', 'updated_date', 'det'];
   dSource!: MatTableDataSource<Employee>;
   flag = true;
 

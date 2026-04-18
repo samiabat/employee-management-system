@@ -1,24 +1,30 @@
 <mat-toolbar class="mat-toolbar" color="warn">
-    <div>
-        BGI EMPLOYEE INFO (BEI)
+    <div class="brand">
+        <mat-icon class="brand-icon">business</mat-icon>
+        <span class="brand-name">BGI Employee Info <span class="brand-abbr">(BEI)</span></span>
     </div>
-    <div><img src="https://bgiethiopia.com/assets/logo-red.png" alt="LOGO"></div>
 
-    <div>
-        <button mat-button>
-      <mat-icon>{{ notificationsRoute.icon }}</mat-icon>
-    </button >
-        <button  *ngIf="true" mat-button>
-      <mat-icon>{{ logoutRoute.icon }}</mat-icon>
-    </button>
+    <div class="toolbar-actions">
+        <button mat-icon-button matTooltip="Notifications">
+            <mat-icon>{{ notificationsRoute.icon }}</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Logout" (click)="logout()">
+            <mat-icon>{{ logoutRoute.icon }}</mat-icon>
+        </button>
     </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="sidenav" color="primary">
-        <img id="yellow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8zIiPuJCOH19cyti4QvOHruHvKY69mq4tg&usqp=CAU" alt="" srcset="">
-        <div *ngFor="let link of mainNavLinks">
-            <a class="menu-button" mat-button [routerLink]="link.link" [routerLinkActive]="link.link">
+        <div class="sidenav-header">
+            <div class="sidenav-logo">
+                <mat-icon class="sidenav-logo-icon">groups</mat-icon>
+            </div>
+            <span class="sidenav-title">BGI Ethiopia</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let link of mainNavLinks" class="nav-item">
+            <a class="menu-button" mat-button [routerLink]="link.link" [routerLinkActive]="'active-link'">
                 <mat-icon color="warn">{{ link.icon }}</mat-icon>
                 <span>{{ link.label }}</span>
             </a>

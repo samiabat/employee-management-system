@@ -1,6 +1,6 @@
 import { EMPLOYEES_ROUTE } from './../../constants/routes';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationFacade } from '../facade/authentication.facade';
 import { AuthenticationService } from '../service/authenticaton.service';
@@ -13,6 +13,8 @@ import { AuthenticationService } from '../service/authenticaton.service';
 })
 export class ComponentComponent implements OnInit {
   loginForm: FormGroup;
+  currentYear = new Date().getFullYear();
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -20,8 +22,8 @@ export class ComponentComponent implements OnInit {
     public authenticationFacade: AuthenticationFacade
   ) {
     this.loginForm = this.fb.group({
-      username: '',
-      password: '',
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 

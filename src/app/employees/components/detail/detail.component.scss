@@ -1,3 +1,41 @@
-mat-grid-tile {
-    background: lightblue;
+.dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #212121;
+
+  mat-icon {
+    color: #c62828;
   }
+}
+
+.detail-content {
+  min-width: 480px;
+  padding-top: 8px !important;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9e9e9e;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #212121;
+}

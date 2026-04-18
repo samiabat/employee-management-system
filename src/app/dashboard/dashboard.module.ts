@@ -6,6 +6,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ConfirmDeleteModule } from '../confirm-delete/confirm-delete.module';
 import { SectorsModule } from '../sectors/sectors.module';
 import { RolesModule } from '../roles/roles.module';
+import { SharedModule } from '../shared.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { RolesModule } from '../roles/roles.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    SharedModule,
     ConfirmDeleteModule,
     SectorsModule,
     RolesModule,

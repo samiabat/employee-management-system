@@ -1,8 +1,14 @@
-<h2 mat-dialog-title>Confirm Delete</h2>
-<div mat-dialog-content>Are you sure you want to delete the row?</div>
-<div mat-dialog-actions>
-  <button mat-flat-button (click)="onConfirmDelete()" color="accent">
-    Yes
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon color="warn">warning</mat-icon>
+  Confirm Delete
+</h2>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete this record? This action cannot be undone.</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="warn" (click)="onConfirmDelete()">
+    <mat-icon>delete</mat-icon>
+    Delete
   </button>
-  <button mat-flat-button mat-dialog-close color="primary">Cancel</button>
 </div>

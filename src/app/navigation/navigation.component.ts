@@ -4,6 +4,7 @@ import { MANAGE_ACCOUNT_ROUTE, LOGIN_ROUTE, LOGOUT_ROUTE, NOTIFICATIONS_ROUTE, D
 import { MatSidenav } from '@angular/material/sidenav'
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { AuthenticationService } from '../security/service/authenticaton.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class NavigationComponent {
 
   constructor(private observer: BreakpointObserver, 
      private router: Router,
+     private authenticationService: AuthenticationService,
      ) {}
 
   manageAccountsRoute = {
@@ -46,16 +48,20 @@ export class NavigationComponent {
 
   mainNavLinks = [
     { link: DASHBOARD_ROUTE, label: 'Dashboard', icon: 'dashboard' },
-    { link: EMPLOYEES_ROUTE, label: 'Emplyees', icon: 'list_alt' },
-    { link: ROLES_ROUTE, label: 'Roles', icon: 'list' },
+    { link: EMPLOYEES_ROUTE, label: 'Employees', icon: 'people' },
+    { link: ROLES_ROUTE, label: 'Roles', icon: 'badge' },
     { link: SECTORS_ROUTE, label: 'Sectors', icon: 'segment' },
     {
       link: MANAGE_ACCOUNT_ROUTE,
       label: 'Manage Accounts',
-      icon: 'account_circle',
+      icon: 'manage_accounts',
     }
   ]
 
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate([LOGIN_ROUTE]);
+  }
 
   ngAfterViewInit() {
       this.observer

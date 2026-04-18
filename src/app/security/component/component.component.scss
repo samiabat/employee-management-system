@@ -1,31 +1,90 @@
-.mat-card {
-    width: 30rem;
-    height: 18rem;
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #b71c1c 0%, #880e0e 50%, #4a0000 100%);
 }
 
-img {
-    height: 150px;
-    padding-top: 2%;
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px !important;
+  padding: 8px 0;
 }
 
-mat-card-content {
-    padding-top: 10%;
+.login-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 16px;
+  gap: 8px;
 }
 
-mat-card {
-    max-width: 50rem;
-    margin: 2em auto;
-    text-align: center;
-    max-height: 50rem;
-    border-radius: 2rem;
-}
-button { 
-    margin-right: 13%;
+.login-logo {
+  background-color: rgba(183, 28, 28, 0.12);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
-form {
-    padding-top: 10%;
-    background-color: rgb(21, 126, 68);
-    //background-image: url('https://previews.123rf.com/images/albertkarimov/albertkarimov1703/albertkarimov170300009/73267957-background-of-fabrics-and-textiles-in-bright-yellow-colour.jpg?fj=1');
-    height: 70%;
+.login-logo-icon {
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  color: #c62828;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #212121;
+}
+
+.login-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 24px 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-btn {
+  width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  border-radius: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.login-footer {
+  text-align: center;
+  padding: 12px;
+  border-top: 1px solid #f0f0f0;
+
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #9e9e9e;
+  }
 }

@@ -1,8 +1,13 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon>{{ update ? 'edit' : 'add_business' }}</mat-icon>
+  {{ update ? 'Edit Sector' : 'Add Sector' }}
+</h2>
+
 <mat-dialog-content>
   <form class="office-form" [formGroup]="sectorForm">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
-      <input id="name" formControlName="name" matInput placeholder=""/>
+      <input id="name" formControlName="name" matInput placeholder="Sector name"/>
       <mat-error *ngIf="sectorForm.get('name')?.hasError('required')">
         Please enter name
       </mat-error>
@@ -10,7 +15,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Description</mat-label>
-      <input id="description" formControlName="description" matInput placeholder=""/>
+      <input id="description" formControlName="description" matInput placeholder="Description"/>
       <mat-error *ngIf="sectorForm.get('description')?.hasError('required')">
         Please enter description
       </mat-error>
@@ -18,17 +23,18 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <button class="submit" mat-stroked-button [mat-dialog-close]>
+    Cancel
+  </button>
   <button
     [disabled]="!sectorForm.valid"
     class="submit"
-    mat-flat-button
-    color="primary"
+    mat-raised-button
+    color="warn"
     (click)="save()"
     [mat-dialog-close]
   >
+    <mat-icon>save</mat-icon>
     Save
-  </button>
-  <button class="submit" mat-flat-button color="accent" [mat-dialog-close]>
-    Cancel
   </button>
 </mat-dialog-actions>
