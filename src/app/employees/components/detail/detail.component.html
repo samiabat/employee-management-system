@@ -1,63 +1,90 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon>person</mat-icon>
+  Employee Details
+</h2>
 
-<mat-dialog-content>
-  <h4>
-    Username: _____________ {{employeeData?.username}}
-  </h4>
-  <h4>
-    Phone: _____________{{employeeData?.mobile}}
-  </h4>
-  <h4>
-    Email: _____________{{employeeData?.email_address}}
-  </h4>
-  <h4>
-    Title: ____________{{employeeData?.title}}
-  </h4>
-  <h4>
-    Street Address:__________{{employeeData?.street_address}}
-  </h4>
-  <h4>
-    Active: _____________ {{employeeData?.active}}
-  </h4>
-  <h4>
-    Company: _____________{{employeeData?.company}}
-  </h4>
-  <h4>
-    Country: _____________ {{employeeData?.country}}
-  </h4>
-  <h4>
-    Created By: ____________ {{employeeData?.created_by}}
-  </h4>
+<mat-dialog-content class="detail-content">
+  <div class="detail-grid">
+    <div class="detail-item">
+      <span class="detail-label">Full Name</span>
+      <span class="detail-value">{{ employeeData?.full_name || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Username</span>
+      <span class="detail-value">{{ employeeData?.username || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Email</span>
+      <span class="detail-value">{{ employeeData?.email_address || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Phone</span>
+      <span class="detail-value">{{ employeeData?.mobile || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Telephone</span>
+      <span class="detail-value">{{ employeeData?.telephone_number || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Title</span>
+      <span class="detail-value">{{ employeeData?.title || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Department</span>
+      <span class="detail-value">{{ employeeData?.department || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Company</span>
+      <span class="detail-value">{{ employeeData?.company || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Country</span>
+      <span class="detail-value">{{ employeeData?.country || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Street Address</span>
+      <span class="detail-value">{{ employeeData?.street_address || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">SAM Account</span>
+      <span class="detail-value">{{ employeeData?.sam_account || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Login</span>
+      <span class="detail-value">{{ employeeData?.login || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Status</span>
+      <span class="detail-value" [class.status-active]="employeeData?.active" [class.status-inactive]="!employeeData?.active">
+        {{ employeeData?.active ? 'Active' : 'Inactive' }}
+      </span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Created By</span>
+      <span class="detail-value">{{ employeeData?.created_by || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Created Date</span>
+      <span class="detail-value">{{ employeeData?.created_date || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Updated By</span>
+      <span class="detail-value">{{ employeeData?.updated_by || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Updated Date</span>
+      <span class="detail-value">{{ employeeData?.updated_date || '—' }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Deleted By</span>
+      <span class="detail-value">{{ employeeData?.deleted_by || '—' }}</span>
+    </div>
+  </div>
+</mat-dialog-content>
 
-  <h4>
-    Updated by: _____________{{employeeData?.updated_by}}
-  </h4>
-
-  <h4>
-    Created date: ____________{{employeeData?.created_date}}
-  </h4>
-  <h4>
-    Updated date: ____________ {{employeeData?.updated_date}}
-  </h4>
-  <h4>
-    Deleted By: ______________{{employeeData?.deleted_by}}
-  </h4>
-  <h4>
-    Login: ____________________{{employeeData?.login}}
-  </h4>
-
-  <h4>
-    Full Name: ________________{{employeeData?.full_name}}
-  </h4>
-
-  <h4>
-    Department: ______________{{employeeData?.department}}
-  </h4>
-  <h4>
-    Sam-Account: _____________ {{employeeData?.sam_account}}
-  </h4>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button class="submit" mat-flat-button color="accent" [mat-dialog-close]>
-      Close
-    </button>
-  </mat-dialog-actions>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="primary" [mat-dialog-close]>
+    <mat-icon>close</mat-icon>
+    Close
+  </button>
+</mat-dialog-actions>

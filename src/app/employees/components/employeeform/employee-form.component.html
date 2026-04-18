@@ -1,3 +1,8 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon>{{ update ? 'edit' : 'person_add' }}</mat-icon>
+  {{ update ? 'Edit Employee' : 'Add Employee' }}
+</h2>
+
 <mat-dialog-content>
   <form class="activity-form" [formGroup]="employeeForm">
     <mat-form-field appearance="outline">
@@ -9,11 +14,8 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Phone</mat-label>
-      <input id="mobile" formControlName="mobile" placeholder="phone" matInput />
-      <mat-error *ngIf="employeeForm.get('mobile')?.hasError('required')">
-        Please enter phone no.
-      </mat-error>
+      <mat-label>Full Name</mat-label>
+      <input id="full_name" formControlName="full_name" placeholder="Full name" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -25,73 +27,73 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Full Name</mat-label>
-      <input id="full_name" formControlName="full_name" placeholder="full_name" matInput />
+      <mat-label>Phone</mat-label>
+      <input id="mobile" formControlName="mobile" placeholder="Phone number" matInput />
+      <mat-error *ngIf="employeeForm.get('mobile')?.hasError('required')">
+        Please enter phone no.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telephone No</mat-label>
+      <input id="telephone_number" formControlName="telephone_number" placeholder="Telephone number" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
-      <input id="title" formControlName="title" placeholder="title" matInput />
+      <input id="title" formControlName="title" placeholder="Title" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <input id="description" formControlName="description" placeholder="description" matInput />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Sam-account</mat-label>
-      <input id="sam_account" formControlName="sam_account" placeholder="Sam-Account" matInput />
+      <mat-label>Department</mat-label>
+      <input id="department" formControlName="department" placeholder="Department" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Company</mat-label>
-      <input id="company" formControlName="company" placeholder="company" matInput />
+      <input id="company" formControlName="company" placeholder="Company" matInput />
     </mat-form-field>
-
-   
 
     <mat-form-field appearance="outline">
       <mat-label>Country</mat-label>
-      <input id="country" formControlName="country" placeholder="country" matInput />
-    </mat-form-field>
-
-    
-
-    <mat-form-field appearance="outline">
-      <mat-label>Department</mat-label>
-      <input id="department" formControlName="department" placeholder="department" matInput />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Telophone NO</mat-label>
-      <input id="telephone_number" formControlName="telephone_number" placeholder="telephone_number" matInput />
+      <input id="country" formControlName="country" placeholder="Country" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Street Address</mat-label>
-      <input id="street_address" formControlName="street_address" placeholder="street_address" matInput />
+      <input id="street_address" formControlName="street_address" placeholder="Street address" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>SAM Account</mat-label>
+      <input id="sam_account" formControlName="sam_account" placeholder="SAM account" matInput />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Login</mat-label>
-      <input id="login" formControlName="login" placeholder="login" matInput />
+      <input id="login" formControlName="login" placeholder="Login" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-span">
+      <mat-label>Description</mat-label>
+      <input id="description" formControlName="description" placeholder="Description" matInput />
     </mat-form-field>
 
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <button class="submit" mat-stroked-button [mat-dialog-close]>
+    Cancel
+  </button>
   <button
     [disabled]="!employeeForm.valid"
     class="submit"
-    mat-flat-button
-    color="primary"
+    mat-raised-button
+    color="warn"
     (click)="save()"
     [mat-dialog-close]
   >
+    <mat-icon>save</mat-icon>
     Save
-  </button>
-  <button class="submit" mat-flat-button color="accent" [mat-dialog-close]>
-    Cancel
   </button>
 </mat-dialog-actions>

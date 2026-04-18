@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
-import { AppModule } from '../app.module';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   declarations: [ConfirmDeleteDialogComponent],
-  imports: [AppModule],
+  imports: [SharedModule],
   exports: [ConfirmDeleteDialogComponent],
 })
 export class ConfirmDeleteModule {}

@@ -19,7 +19,7 @@ import { BehaviorSubject, Observable, switchMap } from 'rxjs';
   providers: [SectorFacade, RoleFacade],
 })
 export class SectorListComponent implements AfterViewInit {
-  d_Colums: string[] = ['id', 'name', 'role', 'active', 'createdBy', 'updated_date', 'deletedBy', 'created_date', 'det'];
+  d_Colums: string[] = ['id', 'name', 'createdBy', 'created_date', 'det'];
   dSource!: MatTableDataSource<Sector>;
   role!: Role;
 

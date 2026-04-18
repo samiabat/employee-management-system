@@ -2,10 +2,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+/* Layout utilities */
 .flex {
   display: flex;
 }
@@ -32,4 +29,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .gap-4 {
   column-gap: 16px;
+}
+
+/* Page header */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333;
+  }
+}
+
+/* Status badge */
+.status-active {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.status-inactive {
+  color: #c62828;
+  font-weight: 500;
 }

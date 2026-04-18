@@ -6,7 +6,7 @@ import { ComponentComponent } from './component/component.component';
 import { SecurityRoutingModule } from './security-routing.module';
 import { AuthenticationState } from './store/authentication.states';
 @NgModule({
-  declarations: [],
+  declarations: [ComponentComponent],
   imports: [
     CommonModule,
     SharedModule, 
