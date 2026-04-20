@@ -47,12 +47,12 @@ export class NavigationComponent {
   }
 
   mainNavLinks = [
-    { link: DASHBOARD_ROUTE, label: 'Dashboard', icon: 'dashboard' },
-    { link: EMPLOYEES_ROUTE, label: 'Employees', icon: 'people' },
-    { link: ROLES_ROUTE, label: 'Roles', icon: 'badge' },
-    { link: SECTORS_ROUTE, label: 'Sectors', icon: 'segment' },
+    { link: '/' + DASHBOARD_ROUTE, label: 'Dashboard', icon: 'dashboard' },
+    { link: '/' + EMPLOYEES_ROUTE, label: 'Employees', icon: 'people' },
+    { link: '/' + ROLES_ROUTE, label: 'Roles', icon: 'badge' },
+    { link: '/' + SECTORS_ROUTE, label: 'Sectors', icon: 'segment' },
     {
-      link: MANAGE_ACCOUNT_ROUTE,
+      link: '/' + MANAGE_ACCOUNT_ROUTE,
       label: 'Manage Accounts',
       icon: 'manage_accounts',
     }
@@ -60,7 +60,7 @@ export class NavigationComponent {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate([LOGIN_ROUTE]);
+    this.router.navigate(['/' + LOGIN_ROUTE]);
   }
 
   ngAfterViewInit() {

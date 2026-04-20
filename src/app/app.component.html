@@ -1,1 +1,2 @@
-<app-navigation></app-navigation>
+<app-navigation *ngIf="showNavigation; else noNav"></app-navigation>
+<ng-template #noNav><router-outlet></router-outlet></ng-template>

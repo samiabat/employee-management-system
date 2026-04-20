@@ -13,8 +13,8 @@ export class AuthenticationFacade {
 
   constructor(private store: Store, private authenticationService: AuthenticationService) {}
 
-  login(loginRequest: LoginRequest) {
-    this.store.dispatch(new Login(loginRequest));
+  login(loginRequest: LoginRequest): Observable<void> {
+    return this.store.dispatch(new Login(loginRequest));
   }
 
   logout() {

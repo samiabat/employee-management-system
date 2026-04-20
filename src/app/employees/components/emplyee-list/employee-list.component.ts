@@ -37,7 +37,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.authenticationService.logedIn())
     if (!this.authenticationService.logedIn()){
-      this.router.navigate([LOGIN_ROUTE]);
+      this.router.navigate(['/' + LOGIN_ROUTE]);
     }
     this.getEmployee();
   }
