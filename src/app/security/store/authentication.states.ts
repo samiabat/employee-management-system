@@ -33,6 +33,7 @@ export class AuthenticationState {
   ) {
     return this.authenticationService.login(loginRequest).pipe(
       tap((loginResponse: any) => {
+        if (!loginResponse) return;
         var token = this.authenticationService.getToken();
         patchState({
           loginResponse: loginResponse,

@@ -7,7 +7,6 @@ import { EmployeeFacade } from '../../facades/employee.facade';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DetailComponent } from '../detail/detail.component';
-import { AuthenticationFacade } from 'src/app/security/facade/authentication.facade';
 import { Router } from '@angular/router';
 import { LOGIN_ROUTE } from 'src/app/constants/routes';
 import { AuthenticationService } from 'src/app/security/service/authenticaton.service';
@@ -29,8 +28,7 @@ export class EmployeeListComponent implements OnInit {
   constructor(
     private employeeFacade: EmployeeFacade,
     private employeeService: EmployeeService,
-    private matDialog: MatDialog, 
-    public authenticationFacade: AuthenticationFacade, 
+    private matDialog: MatDialog,
     private router: Router,
     private authenticationService: AuthenticationService,
     ) {
