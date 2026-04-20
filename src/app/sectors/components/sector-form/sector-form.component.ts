@@ -1,4 +1,3 @@
-import { SectorListComponent } from './../sector-list/sector-list.component';
 import { RoleFacade } from './../../../roles/facades/role.facade';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +10,7 @@ import { Sector } from '../../models/sector.model';
   selector: 'app-sector-form',
   templateUrl: './sector-form.component.html',
   styleUrls: ['./sector-form.component.scss'],
-  providers: [SectorFacade, SectorListComponent, RoleFacade],
+  providers: [SectorFacade, RoleFacade],
 })
 export class SectorFormComponent implements OnInit {
   sectorForm: FormGroup;
@@ -19,7 +18,6 @@ export class SectorFormComponent implements OnInit {
   update: boolean = false;
   constructor(
     public sectorFacade: SectorFacade,
-    public sectorList: SectorListComponent,
     public roleFacade: RoleFacade,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) private data: { update: boolean }
