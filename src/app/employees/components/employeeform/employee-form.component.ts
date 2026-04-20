@@ -45,6 +45,7 @@ export class EmployeeFormComponent implements OnInit {
       telephone_number: '',
       street_address: '',
       login: '',
+      active: [true],
     });
   }
 

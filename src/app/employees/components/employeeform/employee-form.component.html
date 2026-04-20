@@ -1,99 +1,137 @@
-<h2 mat-dialog-title class="dialog-title">
-  <mat-icon>{{ update ? 'edit' : 'person_add' }}</mat-icon>
-  {{ update ? 'Edit Employee' : 'Add Employee' }}
-</h2>
+<div class="form-dialog">
+  <div class="form-dialog-header">
+    <mat-icon class="form-header-icon">{{ update ? 'edit' : 'person_add' }}</mat-icon>
+    <div>
+      <h2 class="form-dialog-title">{{ update ? 'Edit Employee' : 'Add Employee' }}</h2>
+      <p class="form-dialog-sub">{{ update ? 'Update employee information' : 'Add a new team member' }}</p>
+    </div>
+  </div>
 
-<mat-dialog-content>
-  <form class="activity-form" [formGroup]="employeeForm">
-    <mat-form-field appearance="outline">
-      <mat-label>Username</mat-label>
-      <input id="username" formControlName="username" placeholder="username" matInput />
-      <mat-error *ngIf="employeeForm.get('username')?.hasError('required')">
-        Please enter username
-      </mat-error>
-    </mat-form-field>
+  <mat-dialog-content>
+    <form class="employee-form" [formGroup]="employeeForm">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Full Name</mat-label>
-      <input id="full_name" formControlName="full_name" placeholder="Full name" matInput />
-    </mat-form-field>
+      <!-- Basic Information -->
+      <div class="form-section">
+        <h3 class="form-section-title">Basic Information</h3>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <input formControlName="username" placeholder="username" matInput />
+            <mat-error *ngIf="employeeForm.get('username')?.hasError('required')">Username is required</mat-error>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input id="emial" formControlName="email_address" placeholder="Email" matInput />
-      <mat-error *ngIf="employeeForm.get('email_address')?.hasError('required')">
-        Please enter email
-      </mat-error>
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <mat-icon matPrefix>badge</mat-icon>
+            <input formControlName="full_name" placeholder="Full name" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Phone</mat-label>
-      <input id="mobile" formControlName="mobile" placeholder="Phone number" matInput />
-      <mat-error *ngIf="employeeForm.get('mobile')?.hasError('required')">
-        Please enter phone no.
-      </mat-error>
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Title / Position</mat-label>
+            <mat-icon matPrefix>work_outline</mat-icon>
+            <input formControlName="title" placeholder="Job title" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Telephone No</mat-label>
-      <input id="telephone_number" formControlName="telephone_number" placeholder="Telephone number" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-icon matPrefix>apartment</mat-icon>
+            <input formControlName="department" placeholder="Department" matInput />
+          </mat-form-field>
+        </div>
+      </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Title</mat-label>
-      <input id="title" formControlName="title" placeholder="Title" matInput />
-    </mat-form-field>
+      <!-- Contact Details -->
+      <div class="form-section">
+        <h3 class="form-section-title">Contact Details</h3>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <mat-icon matPrefix>email</mat-icon>
+            <input formControlName="email_address" placeholder="email@bgi.com" matInput />
+            <mat-error *ngIf="employeeForm.get('email_address')?.hasError('required')">Email is required</mat-error>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Department</mat-label>
-      <input id="department" formControlName="department" placeholder="Department" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile Phone</mat-label>
+            <mat-icon matPrefix>phone_iphone</mat-icon>
+            <input formControlName="mobile" placeholder="+251..." matInput />
+            <mat-error *ngIf="employeeForm.get('mobile')?.hasError('required')">Phone is required</mat-error>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Company</mat-label>
-      <input id="company" formControlName="company" placeholder="Company" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Telephone</mat-label>
+            <mat-icon matPrefix>call</mat-icon>
+            <input formControlName="telephone_number" placeholder="Telephone number" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Country</mat-label>
-      <input id="country" formControlName="country" placeholder="Country" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Street Address</mat-label>
+            <mat-icon matPrefix>place</mat-icon>
+            <input formControlName="street_address" placeholder="Street address" matInput />
+          </mat-form-field>
+        </div>
+      </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Street Address</mat-label>
-      <input id="street_address" formControlName="street_address" placeholder="Street address" matInput />
-    </mat-form-field>
+      <!-- Employment Details -->
+      <div class="form-section">
+        <h3 class="form-section-title">Employment Details</h3>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Company</mat-label>
+            <mat-icon matPrefix>business</mat-icon>
+            <input formControlName="company" placeholder="Company" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>SAM Account</mat-label>
-      <input id="sam_account" formControlName="sam_account" placeholder="SAM account" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>
+            <mat-icon matPrefix>flag</mat-icon>
+            <input formControlName="country" placeholder="Country" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Login</mat-label>
-      <input id="login" formControlName="login" placeholder="Login" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>SAM Account</mat-label>
+            <mat-icon matPrefix>manage_accounts</mat-icon>
+            <input formControlName="sam_account" placeholder="SAM account" matInput />
+          </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-span">
-      <mat-label>Description</mat-label>
-      <input id="description" formControlName="description" placeholder="Description" matInput />
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Login</mat-label>
+            <mat-icon matPrefix>login</mat-icon>
+            <input formControlName="login" placeholder="Login" matInput />
+          </mat-form-field>
 
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button class="submit" mat-stroked-button [mat-dialog-close]>
-    Cancel
-  </button>
-  <button
-    [disabled]="!employeeForm.valid"
-    class="submit"
-    mat-raised-button
-    color="warn"
-    (click)="save()"
-    [mat-dialog-close]
-  >
-    <mat-icon>save</mat-icon>
-    Save
-  </button>
-</mat-dialog-actions>
+          <mat-form-field appearance="outline" class="full-span">
+            <mat-label>Description</mat-label>
+            <mat-icon matPrefix>description</mat-icon>
+            <input formControlName="description" placeholder="Description / notes" matInput />
+          </mat-form-field>
+
+          <div class="active-toggle full-span">
+            <mat-checkbox formControlName="active" color="primary">
+              <span class="toggle-label">Employee is Active</span>
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="form-actions" align="end">
+    <button mat-stroked-button class="cancel-btn" [mat-dialog-close]>
+      <mat-icon>close</mat-icon>
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      class="save-btn"
+      [disabled]="!employeeForm.valid"
+      (click)="save()"
+      [mat-dialog-close]
+    >
+      <mat-icon>save</mat-icon>
+      {{ update ? 'Save Changes' : 'Add Employee' }}
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,90 +1,268 @@
 .login-page {
   min-height: 100vh;
   display: flex;
+  overflow: hidden;
+}
+
+// Left panel
+.left-panel {
+  width: 40%;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #b71c1c 0%, #880e0e 50%, #4a0000 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(198,40,40,0.12);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(30, 58, 95, 0.6);
+  }
+}
+
+.left-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.brand-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 20px;
+  line-height: 1.3;
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  margin: 0 0 36px;
+  max-width: 340px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+.feature-icon {
+  font-size: 1.1rem;
+}
+
+.demo-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.82rem;
+  margin-bottom: 32px;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #64b5f6;
+  }
+}
+
+.left-footer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+}
+
+// Right panel
+.right-panel {
+  width: 60%;
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
 }
 
 .login-card {
   width: 100%;
-  max-width: 420px;
-  border-radius: 16px !important;
-  padding: 8px 0;
+  max-width: 440px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+  padding: 48px 40px 36px;
 }
 
-.login-card-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32px 24px 16px;
-  gap: 8px;
+.login-header {
+  text-align: center;
+  margin-bottom: 36px;
 }
 
 .login-logo {
-  background-color: rgba(183, 28, 28, 0.12);
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
-.login-logo-icon {
-  font-size: 44px;
-  width: 44px;
-  height: 44px;
-  color: #c62828;
+.welcome-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
 }
 
-.login-title {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #212121;
-}
-
-.login-subtitle {
+.welcome-sub {
   margin: 0;
   font-size: 0.9rem;
-  color: #757575;
+  color: #64748b;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px 24px 24px;
+  gap: 4px;
 }
 
 .full-width {
   width: 100%;
 }
 
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: -8px 0 8px;
+}
+
+.forgot-link {
+  font-size: 0.82rem;
+  color: #c62828;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  &:hover { text-decoration: underline; }
+}
+
 .login-btn {
   width: 100%;
-  height: 48px;
-  font-size: 1rem;
-  font-weight: 600;
+  height: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.5px;
   margin-top: 8px;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #c62828, #8e0000) !important;
+  color: white !important;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  box-shadow: 0 4px 14px rgba(198,40,40,0.35) !important;
+  transition: transform 0.15s, box-shadow 0.15s !important;
+
+  &:hover:not([disabled]) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(198,40,40,0.45) !important;
+  }
+  &[disabled] { opacity: 0.55 !important; }
 }
 
 .login-footer {
   text-align: center;
-  padding: 12px;
-  border-top: 1px solid #f0f0f0;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
 
-  p {
-    margin: 0;
+  a {
     font-size: 0.8rem;
-    color: #9e9e9e;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    &:hover { color: #c62828; }
+  }
+}
+
+// Mobile
+@media (max-width: 768px) {
+  .right-panel {
+    width: 100%;
+  }
+
+  .login-card {
+    padding: 36px 24px 28px;
   }
 }
