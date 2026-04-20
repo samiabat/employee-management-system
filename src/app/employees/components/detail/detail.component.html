@@ -1,90 +1,77 @@
-<h2 mat-dialog-title class="dialog-title">
-  <mat-icon>person</mat-icon>
-  Employee Details
-</h2>
-
-<mat-dialog-content class="detail-content">
-  <div class="detail-grid">
-    <div class="detail-item">
-      <span class="detail-label">Full Name</span>
-      <span class="detail-value">{{ employeeData?.full_name || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Username</span>
-      <span class="detail-value">{{ employeeData?.username || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Email</span>
-      <span class="detail-value">{{ employeeData?.email_address || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Phone</span>
-      <span class="detail-value">{{ employeeData?.mobile || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Telephone</span>
-      <span class="detail-value">{{ employeeData?.telephone_number || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Title</span>
-      <span class="detail-value">{{ employeeData?.title || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Department</span>
-      <span class="detail-value">{{ employeeData?.department || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Company</span>
-      <span class="detail-value">{{ employeeData?.company || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Country</span>
-      <span class="detail-value">{{ employeeData?.country || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Street Address</span>
-      <span class="detail-value">{{ employeeData?.street_address || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">SAM Account</span>
-      <span class="detail-value">{{ employeeData?.sam_account || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Login</span>
-      <span class="detail-value">{{ employeeData?.login || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Status</span>
-      <span class="detail-value" [class.status-active]="employeeData?.active" [class.status-inactive]="!employeeData?.active">
-        {{ employeeData?.active ? 'Active' : 'Inactive' }}
-      </span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Created By</span>
-      <span class="detail-value">{{ employeeData?.created_by || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Created Date</span>
-      <span class="detail-value">{{ employeeData?.created_date || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Updated By</span>
-      <span class="detail-value">{{ employeeData?.updated_by || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Updated Date</span>
-      <span class="detail-value">{{ employeeData?.updated_date || '—' }}</span>
-    </div>
-    <div class="detail-item">
-      <span class="detail-label">Deleted By</span>
-      <span class="detail-value">{{ employeeData?.deleted_by || '—' }}</span>
-    </div>
+<div class="detail-dialog">
+  <!-- Avatar header -->
+  <div class="detail-avatar-section">
+    <img
+      [src]="'https://ui-avatars.com/api/?name=' + (employeeData?.full_name || 'User') + '&background=c62828&color=fff&size=80&bold=true'"
+      [alt]="employeeData?.full_name"
+      class="detail-avatar"
+    />
+    <h2 class="detail-name">{{ employeeData?.full_name || '—' }}</h2>
+    <span class="detail-title-role">{{ employeeData?.title || '' }}</span>
+    <span [class]="employeeData?.active ? 'badge badge-active' : 'badge badge-inactive'">
+      {{ employeeData?.active ? '● Active' : '● Inactive' }}
+    </span>
   </div>
-</mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-stroked-button color="primary" [mat-dialog-close]>
-    <mat-icon>close</mat-icon>
-    Close
-  </button>
-</mat-dialog-actions>
+  <mat-divider class="detail-divider"></mat-divider>
+
+  <mat-dialog-content class="detail-content">
+    <div class="detail-grid">
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>person_outline</mat-icon> Username</span>
+        <span class="detail-value">{{ employeeData?.username || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>email</mat-icon> Email</span>
+        <span class="detail-value">{{ employeeData?.email_address || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>phone</mat-icon> Phone</span>
+        <span class="detail-value">{{ employeeData?.mobile || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>call</mat-icon> Telephone</span>
+        <span class="detail-value">{{ employeeData?.telephone_number || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>apartment</mat-icon> Department</span>
+        <span class="detail-value">{{ employeeData?.department || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>business</mat-icon> Company</span>
+        <span class="detail-value">{{ employeeData?.company || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>flag</mat-icon> Country</span>
+        <span class="detail-value">{{ employeeData?.country || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>place</mat-icon> Street Address</span>
+        <span class="detail-value">{{ employeeData?.street_address || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>manage_accounts</mat-icon> SAM Account</span>
+        <span class="detail-value">{{ employeeData?.sam_account || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>login</mat-icon> Login</span>
+        <span class="detail-value">{{ employeeData?.login || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>calendar_today</mat-icon> Created Date</span>
+        <span class="detail-value">{{ employeeData?.created_date || '—' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label"><mat-icon>update</mat-icon> Updated Date</span>
+        <span class="detail-value">{{ employeeData?.updated_date || '—' }}</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="detail-actions" align="end">
+    <button mat-stroked-button class="close-btn" [mat-dialog-close]>
+      <mat-icon>close</mat-icon>
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

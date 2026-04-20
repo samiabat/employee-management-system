@@ -1,39 +1,80 @@
-<mat-toolbar class="mat-toolbar" color="warn">
-    <div class="brand">
-        <mat-icon class="brand-icon">business</mat-icon>
-        <span class="brand-name">BGI Employee Info <span class="brand-abbr">(BEI)</span></span>
+<!-- Top Toolbar -->
+<mat-toolbar class="app-toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-left">
+      <button mat-icon-button class="hamburger show-mobile" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="toolbar-brand">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#c62828"/>
+          <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="16" fill="white">BGI</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">StaffHub</span>
+          <span class="brand-sub hide-mobile">BGI Ethiopia</span>
+        </div>
+      </div>
     </div>
 
-    <div class="toolbar-actions">
-        <button mat-icon-button matTooltip="Notifications">
-            <mat-icon>{{ notificationsRoute.icon }}</mat-icon>
-        </button>
-        <button mat-icon-button matTooltip="Logout" (click)="logout()">
-            <mat-icon>{{ logoutRoute.icon }}</mat-icon>
-        </button>
+    <div class="toolbar-right">
+      <button mat-icon-button class="toolbar-icon-btn" matTooltip="Notifications">
+        <mat-icon [matBadge]="'3'" matBadgeColor="warn" matBadgeSize="small">notifications_none</mat-icon>
+      </button>
+
+      <div class="user-avatar" matTooltip="Admin User">
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=c62828&color=fff&size=80&bold=true" alt="Admin User" />
+      </div>
+
+      <button mat-icon-button class="toolbar-icon-btn logout-btn" matTooltip="Logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
     </div>
+  </div>
 </mat-toolbar>
 
-<mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="sidenav" color="primary">
-        <div class="sidenav-header">
-            <div class="sidenav-logo">
-                <mat-icon class="sidenav-logo-icon">groups</mat-icon>
-            </div>
-            <span class="sidenav-title">BGI Ethiopia</span>
-        </div>
-        <mat-divider></mat-divider>
-        <div *ngFor="let link of mainNavLinks" class="nav-item">
-            <a class="menu-button" mat-button [routerLink]="link.link" [routerLinkActive]="'active-link'">
-                <mat-icon color="warn">{{ link.icon }}</mat-icon>
-                <span>{{ link.label }}</span>
-            </a>
-            <mat-divider></mat-divider>
-        </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content mat-elevation-z1">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav="matSidenav" class="app-sidenav" mode="side">
+    <!-- User Profile Card -->
+    <div class="sidenav-profile">
+      <img class="profile-avatar" src="https://ui-avatars.com/api/?name=Admin+User&background=c62828&color=fff&size=80&bold=true" alt="Admin User" />
+      <div class="profile-info">
+        <span class="profile-name">Admin User</span>
+        <span class="profile-role">Administrator</span>
+      </div>
+    </div>
+
+    <mat-divider class="sidenav-divider"></mat-divider>
+
+    <!-- Navigation Links -->
+    <div class="nav-section">
+      <span class="nav-section-label">Main Menu</span>
+      <nav>
+        <a
+          *ngFor="let link of mainNavLinks"
+          class="nav-link"
+          [routerLink]="link.link"
+          [routerLinkActive]="'nav-link-active'"
+          [routerLinkActiveOptions]="{exact: false}"
+        >
+          <mat-icon class="nav-icon">{{ link.icon }}</mat-icon>
+          <span class="nav-label">{{ link.label }}</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom -->
+    <div class="sidenav-bottom">
+      <span class="sidenav-version">v2.0.0</span>
+      <a href="https://github.com/samiabat" target="_blank" rel="noopener noreferrer" class="sidenav-credit">
+        Built by samiabat
+      </a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>

@@ -20,7 +20,7 @@ import { EmployeeService } from '../../services/employee.service';
   providers: [EmployeeFacade],
 })
 export class EmployeeListComponent implements OnInit {
-  d_Colums: string[] = ['id', 'name', 'full_name', 'phone', 'email', 'active', 'created_date', 'updated_date', 'det'];
+  d_Colums: string[] = ['avatar', 'id', 'name', 'full_name', 'phone', 'email', 'active', 'created_date', 'updated_date', 'det'];
   dSource!: MatTableDataSource<Employee>;
   flag = true;
 
@@ -89,5 +89,33 @@ export class EmployeeListComponent implements OnInit {
     if (this.dSource.paginator) {
       this.dSource.paginator.firstPage();
     }
+  }
+
+  getAvatarUrl(name: string): string {
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'User')}&background=c62828&color=fff&size=36&rounded=true&bold=true`;
+  }
+
+  exportCSV() {
+    if (!this.dSource?.data?.length) return;
+    const headers = ['ID', 'Username', 'Full Name', 'Email', 'Phone', 'Department', 'Title', 'Status', 'Created Date'];
+    const rows = this.dSource.data.map(e => [
+      e.id ?? '',
+      e.username ?? '',
+      e.full_name ?? '',
+      e.email_address ?? '',
+      e.mobile ?? '',
+      e.department ?? '',
+      e.title ?? '',
+      e.active ? 'Active' : 'Inactive',
+      e.created_date ?? '',
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'employees.csv';
+    a.click();
+    URL.revokeObjectURL(url);
   }
 }

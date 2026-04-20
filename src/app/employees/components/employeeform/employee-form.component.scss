@@ -1,22 +1,116 @@
-.dialog-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
-  color: #212121;
+.form-dialog {
+  min-width: 580px;
+  max-width: 680px;
 
-  mat-icon {
-    color: #c62828;
+  @media (max-width: 640px) {
+    min-width: auto;
   }
 }
 
-.activity-form {
+.form-dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.form-header-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: #c62828;
+}
+
+.form-dialog-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.form-dialog-sub {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+mat-dialog-content {
+  padding: 0 24px !important;
+  max-height: 65vh;
+}
+
+.employee-form {
+  padding: 8px 0;
+}
+
+.form-section {
+  margin-bottom: 8px;
+}
+
+.form-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  margin: 16px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 16px;
-  min-width: 560px;
+  column-gap: 12px;
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .full-span {
   grid-column: span 2;
+
+  @media (max-width: 520px) {
+    grid-column: span 1;
+  }
 }
+
+.active-toggle {
+  display: flex;
+  align-items: center;
+  padding: 8px 0 4px;
+}
+
+.toggle-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-actions {
+  padding: 12px 24px 20px !important;
+  gap: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.cancel-btn {
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #c62828, #8e0000) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(198,40,40,0.3) !important;
+
+  &[disabled] { opacity: 0.5 !important; }
+}
+
