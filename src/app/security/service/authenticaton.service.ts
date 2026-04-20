@@ -36,7 +36,6 @@ export class AuthenticationService {
   }
   logout() {
     localStorage.removeItem(this.tokenKey);
-    location.reload();
   }
 }
 

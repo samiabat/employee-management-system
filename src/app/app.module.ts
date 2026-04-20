@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SharedModule } from './shared.module';
 import { DemoFallbackInterceptor } from './interceptors/demo-fallback.interceptor';
+import { AuthenticationState } from './security/store/authentication.states';
 
 
 
@@ -23,7 +24,7 @@ import { DemoFallbackInterceptor } from './interceptors/demo-fallback.intercepto
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([AuthenticationState], {
       developmentMode: true,
     }),
   ],

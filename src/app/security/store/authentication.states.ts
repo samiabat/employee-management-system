@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext, StateToken } from '@ngxs/store';
+import { Action, NgxsOnInit, State, StateContext, StateToken } from '@ngxs/store';
 import { tap } from 'rxjs';
 import { LoginResponse } from '../model/login-response.model';
 import { AuthenticationService } from '../service/authenticaton.service';
@@ -23,8 +23,15 @@ const AUTHENTICATION_STATE_TOKEN = new StateToken<AuthenticationStateModel>(
 })
 
 @Injectable()
-export class AuthenticationState {
+export class AuthenticationState implements NgxsOnInit {
   constructor(private authenticationService: AuthenticationService) { }
+
+  ngxsOnInit(ctx: StateContext<AuthenticationStateModel>) {
+    const token = this.authenticationService.getToken();
+    if (token) {
+      ctx.patchState({ isAuthenticated: true });
+    }
+  }
 
   @Action(Login)
   login(
