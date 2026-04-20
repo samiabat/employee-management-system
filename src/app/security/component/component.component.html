@@ -73,7 +73,7 @@
         </mat-form-field>
 
         <div class="forgot-row">
-          <a href="#" class="forgot-link" onclick="return false;">Forgot password?</a>
+          <button type="button" class="forgot-link" (click)="$event.preventDefault()">Forgot password?</button>
         </div>
 
         <button

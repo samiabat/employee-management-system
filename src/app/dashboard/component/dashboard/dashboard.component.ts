@@ -66,7 +66,12 @@ export class DashboardComponent implements OnInit {
         counts[e.department] = (counts[e.department] || 0) + 1;
       }
     }
-    const max = Math.max(...Object.values(counts), 1);
+    const values = Object.values(counts);
+    if (values.length === 0) {
+      this.deptDistribution = [];
+      return;
+    }
+    const max = Math.max(...values);
     this.deptDistribution = Object.entries(counts)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 6)
